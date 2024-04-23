@@ -2,7 +2,6 @@ import React from "react";
 import {
   Card,
   CardBody,
-  CardFooter,
   CardHeader,
   HStack,
   Heading,
@@ -20,7 +19,7 @@ interface Props {
 
 const GameCard = ({ game }: Props) => {
   return (
-    <Card overflow={"hidden"}>
+    <Card width={"300px"} overflow={"hidden"}>
       <CardHeader p={0}>
         <Image src={getCroppedImageUrl(game.background_image)} />
       </CardHeader>

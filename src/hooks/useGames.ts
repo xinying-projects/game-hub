@@ -35,14 +35,16 @@ const useGames = () => {
       .get<FetchGameResponse>("/games", { signal: controller.signal })
       .then(({ data: { results } }) => {
         setGames(results);
+        setLoading(false);
       })
       .catch((error) => {
         if (error instanceof CanceledError) return;
         setError(error.message);
-      })
-      .finally(() => {
         setLoading(false);
       });
+    // .finally(() => {
+    //   setLoading(false);
+    // });
 
     return () => controller.abort();
   }, []);
