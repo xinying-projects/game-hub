@@ -1,38 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Text } from "@chakra-ui/react";
-import client from "../services/client";
 
-interface FetchGameResponse {
-  results: Game[];
-  count: number;
-}
-
-interface Game {
-  id: number;
-  name: string;
-  release: string;
-  rating: number;
-}
+import useGames from "../hooks/useGames";
 
 const GameGrid = () => {
-  const [games, setGames] = useState<Game[]>([]);
-  const [isLoading, setLoading] = useState(false);
-  const [error, setError] = useState("");
+  const { isLoading, games, error } = useGames();
 
-  useEffect(() => {
-    setLoading(true);
-    client
-      .get<FetchGameResponse>("/games")
-      .then(({ data: { results } }) => {
-        setGames(results);
-      })
-      .catch(({ message }) => {
-        setError(message);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
-  }, []);
   return (
     <>
       {isLoading && <Text>loading...</Text>}
