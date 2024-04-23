@@ -12,6 +12,7 @@ import {
 import { Game } from "../hooks/useGames";
 import PlatformIconList from "./PlatformIconList";
 import CriticScore from "./CriticScore";
+import getCroppedImageUrl from "../services/image-url";
 
 interface Props {
   game: Game;
@@ -21,7 +22,7 @@ const GameCard = ({ game }: Props) => {
   return (
     <Card overflow={"hidden"}>
       <CardHeader p={0}>
-        <Image src={game.background_image} />
+        <Image src={getCroppedImageUrl(game.background_image)} />
       </CardHeader>
       <CardBody>
         <Heading fontSize={"xl"}>{game.name}</Heading>
