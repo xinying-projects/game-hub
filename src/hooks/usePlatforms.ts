@@ -1,7 +1,10 @@
 import React from "react";
 import useData from "./useData";
-import { Platform } from "./useGames";
-
-const usePlatforms = () => useData<Platform>("/platforms");
+interface Platform {
+  id: number;
+  name: string;
+  slug: string;
+}
+const usePlatforms = () => useData<Platform>("/platforms/lists/parents");
 
 export default usePlatforms;
