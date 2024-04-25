@@ -19,6 +19,9 @@ const useData = <T>(
   useEffect(
     () => {
       const controller = new AbortController();
+      // clear-up
+      setData([]);
+      setError("");
 
       setLoading(true);
       client
