@@ -2,6 +2,7 @@ import React from "react";
 import {
   Button,
   HStack,
+  Heading,
   Image,
   List,
   ListItem,
@@ -25,6 +26,9 @@ const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
 
   return (
     <>
+      <Heading marginBottom={2} fontSize={"2xl"}>
+        Genres
+      </Heading>
       <List>
         {data.map((genre) => (
           <ListItem key={genre.id} py={"10px"}>
@@ -39,6 +43,7 @@ const GenreList = ({ onSelectGenre, selectedGenre }: Props) => {
               <Button
                 fontWeight={genre.id === selectedGenre?.id ? "bold" : "normal"}
                 whiteSpace={"normal"}
+                textAlign={"left"}
                 onClick={() => onSelectGenre(genre)}
                 variant={"link"}
                 fontSize={"md"}
