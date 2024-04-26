@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import client from "../services/client";
 import { CanceledError } from "axios";
-import useData from "./useData";
-
+import genres from "../data/genres";
 export interface Genre {
   id: number;
   name: string;
@@ -11,6 +10,6 @@ export interface Genre {
   image_background: string;
 }
 
-const useGenres = () => useData<Genre>("/genres");
+const useGenres = () => ({ data: genres, isLoading: false, error: "" });
 
 export default useGenres;
