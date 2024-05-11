@@ -3,7 +3,7 @@ import ms from "ms";
 
 import genres from "../data/genres";
 import ApiClient from "../services/client";
-import { Genre } from "../entities/Genre";
+import Genre from "../entities/Genre";
 
 const apiClient = new ApiClient<Genre>("/genres");
 const useGenres = () => {
