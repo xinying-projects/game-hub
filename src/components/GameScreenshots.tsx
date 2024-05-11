@@ -7,7 +7,6 @@ interface Props {
 
 const GameScreenshots = ({ gameId }: Props) => {
   const { data, error, isLoading } = useScreenshots(gameId);
-  console.log(data);
 
   if (isLoading) return null;
 
